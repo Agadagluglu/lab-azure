@@ -1,0 +1,22 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "",
+    "parameters": {  },
+    "variables": { 
+        "AvsetName":"Av-set-AD"
+     },
+    "resources": [  
+        {
+            "type": "Microsoft.Compute/availabilitySets",
+            "name": "[variables('AvsetName')]",
+            "apiVersion": "2016-04-30-preview",
+            "location":"[resourceGroup().location]",
+            "properties":{
+                "managed":true,
+                "platformFaultDomainCount":3,
+                "platformUpdateDomainCount":5
+            }
+        }
+    ],
+    "outputs": {  }
+}
